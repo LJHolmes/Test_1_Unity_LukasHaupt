@@ -1,3 +1,5 @@
+using System.Globalization;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class NumberFilter : MonoBehaviour
@@ -14,7 +16,49 @@ public class NumberFilter : MonoBehaviour
    */
 
     public int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-    public int[] evenNumbers;
-    public int[] oddNumbers;
 
+    public int[] evenNumbers = new int[5];
+    public int[] oddNumbers = new int[5];
+
+    private void Start()
+    {
+        CheckEvenOrOddNumber();
+    }
+
+    private void CheckEvenOrOddNumber()
+    {
+        foreach (int number in numbers)
+        {
+            int evenCount = 0;
+            int oddCount = 0;
+
+            // Wenn zahl durch 2 geteilt irgendwann 0 ergibt
+            if (number % 2 == 0)
+            {
+                evenNumbers[evenCount] = number;
+                evenCount++;
+            }
+            else
+            {
+                oddNumbers[oddCount] = number;
+                oddCount++;
+            }
+        }
+    }
+
+    public void CheckEvenNumbers()
+    {
+        foreach (int number in evenNumbers)
+        {
+            Debug.Log(number);
+        }
+    }
+
+    public void CheckOddNumbers()
+    {
+        foreach (int number in oddNumbers)
+        {
+            Debug.Log(number);
+        }
+    }
 }

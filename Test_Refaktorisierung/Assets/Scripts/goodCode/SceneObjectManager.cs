@@ -14,12 +14,9 @@ public class SceneObjectManager : MonoBehaviour
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         items = GameObject.FindGameObjectsWithTag("Item");
-
-        CheckEnemiesType();
-        CheckItemsPosition();
     }
 
-    private void CheckEnemiesType()
+    public void CheckEnemiesType() // for Button
     {
         foreach (GameObject enemy in enemies)
         {
@@ -29,26 +26,32 @@ public class SceneObjectManager : MonoBehaviour
             // Typ zuweißen
             string randomEnemyType = enemyTypes[randomType];
 
-            Debug.Log(randomEnemyType);
+            Debug.Log(enemy.name + " " + randomEnemyType);
         }
     }
 
-    private void CheckItemsPosition()
+    public void CheckItemsPosition() // for Button
     {
         foreach (GameObject item in items)
         {
+            // Item auf random Vector3 setzen
             item.transform.position = GetRandomPosition();
-            Debug.Log(item.transform.position);
+
+            Debug.Log(item.name + " " + item.transform.position);
         }
     }
 
     private Vector3 GetRandomPosition()
     {
+        // Floats random legen, von itemPositionRange
         float randomX = Random.Range(-itemPositionRange.x, itemPositionRange.x);
         float randomY = Random.Range(-itemPositionRange.y, itemPositionRange.y);
         float randomZ = Random.Range(-itemPositionRange.z, itemPositionRange.z);
 
+        // Neuen Vector erstellen
         Vector3 randomPosition = new Vector3(randomX, randomY, randomZ);
+
+        // Rückgabe
         return randomPosition;
     }
 
