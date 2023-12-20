@@ -31,8 +31,8 @@ public class XMasGame : MonoBehaviour
     public List<string> giftInventory = new List<string>();
 
     private int santaHealth = 100;
-    private bool isFlying;
     private float flyingSpeed = 10f;
+    private bool isFlying;
 
 
     void Start()

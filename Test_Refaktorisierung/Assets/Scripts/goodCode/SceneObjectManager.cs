@@ -12,6 +12,7 @@ public class SceneObjectManager : MonoBehaviour
 
     private void Start()
     {
+        // enemies und items nach Tags in der Szene suchen
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         items = GameObject.FindGameObjectsWithTag("Item");
     }
@@ -44,12 +45,12 @@ public class SceneObjectManager : MonoBehaviour
     private Vector3 GetRandomPosition()
     {
         // Floats random legen, von itemPositionRange
-        float randomX = Random.Range(-itemPositionRange.x, itemPositionRange.x);
-        float randomY = Random.Range(-itemPositionRange.y, itemPositionRange.y);
-        float randomZ = Random.Range(-itemPositionRange.z, itemPositionRange.z);
+        float x = Random.Range(-itemPositionRange.x, itemPositionRange.x);
+        float y = Random.Range(-itemPositionRange.y, itemPositionRange.y);
+        float z = Random.Range(-itemPositionRange.z, itemPositionRange.z);
 
         // Neuen Vector erstellen
-        Vector3 randomPosition = new Vector3(randomX, randomY, randomZ);
+        Vector3 randomPosition = new Vector3(x, y, z);
 
         // Rückgabe
         return randomPosition;

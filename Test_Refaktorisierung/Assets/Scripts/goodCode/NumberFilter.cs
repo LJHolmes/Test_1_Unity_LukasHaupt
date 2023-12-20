@@ -23,15 +23,18 @@ public class NumberFilter : MonoBehaviour
     private void Start()
     {
         CheckEvenOrOddNumber();
+        CheckEvenNumbers();
+        CheckOddNumbers();
     }
 
     private void CheckEvenOrOddNumber()
     {
+        // Gerade und Ungerade Zähler
+        int evenCount = 0;
+        int oddCount = 0;
+
         foreach (int number in numbers)
         {
-            int evenCount = 0;
-            int oddCount = 0;
-
             // Wenn zahl durch 2 geteilt irgendwann 0 ergibt
             if (number % 2 == 0)
             {
