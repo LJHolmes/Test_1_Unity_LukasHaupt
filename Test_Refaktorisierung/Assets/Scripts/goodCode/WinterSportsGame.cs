@@ -1,9 +1,7 @@
 using UnityEngine;
-using System;
 using System.Collections.Generic;
-using UnityEngine.UI;
 
-public class WinterSportsGame_badCode : MonoBehaviour
+public class WinterSportsGame : MonoBehaviour
 {
     /*
     Aufgabenstellung: Refaktorisierung

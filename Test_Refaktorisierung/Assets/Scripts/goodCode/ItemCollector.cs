@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class ItemCollector_badCode : MonoBehaviour
+public class ItemCollector : MonoBehaviour
 {
     /*
     Aufgabenstellung: Refaktorisierung

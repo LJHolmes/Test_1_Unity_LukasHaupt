@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SceneObjectManager_badCode : MonoBehaviour
+public class SceneObjectManager : MonoBehaviour
 {
     public GameObject[] enemies;
     public GameObject[] items;
