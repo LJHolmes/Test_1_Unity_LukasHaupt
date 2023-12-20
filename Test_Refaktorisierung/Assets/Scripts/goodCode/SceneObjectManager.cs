@@ -4,7 +4,9 @@ public class SceneObjectManager : MonoBehaviour
 {
     public GameObject[] enemies;
     public GameObject[] items;
+
     public string[] enemyTypes = { "fire", "water", "ice", "stone" };
+
     public Vector3 itemPositionRange = new Vector3(10f, 10f, 10f);
 
     /*
