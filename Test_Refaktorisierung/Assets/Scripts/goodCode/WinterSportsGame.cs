@@ -25,6 +25,7 @@ public class WinterSportsGame : MonoBehaviour
 
     void Start()
     {
+        // Ausdauer auf 100 setzen
         playerStamina = 100;
 
         Debug.Log("WinterSports beginnt!");

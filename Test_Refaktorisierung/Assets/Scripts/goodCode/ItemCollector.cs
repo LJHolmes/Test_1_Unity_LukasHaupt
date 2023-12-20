@@ -24,6 +24,7 @@ public class ItemCollector : MonoBehaviour
 
     private void CollectItems()
     {
+        // gehe den Array items durch und füge ihn zur Liste hinzu
         foreach (var item in items)
         {
             collectedItems.Add(item);

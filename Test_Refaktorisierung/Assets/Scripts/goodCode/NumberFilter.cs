@@ -51,6 +51,7 @@ public class NumberFilter : MonoBehaviour
 
     public void CheckEvenNumbers()
     {
+        // Schreibe gerade Numbers in Console
         foreach (int number in evenNumbers)
         {
             Debug.Log(number);
@@ -59,6 +60,7 @@ public class NumberFilter : MonoBehaviour
 
     public void CheckOddNumbers()
     {
+        // Schreibe ungerade Numbers in Console
         foreach (int number in oddNumbers)
         {
             Debug.Log(number);
