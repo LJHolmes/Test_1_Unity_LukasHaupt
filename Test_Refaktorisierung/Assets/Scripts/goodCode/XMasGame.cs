@@ -24,32 +24,27 @@ public class XMasGame : MonoBehaviour
     - Zum Abschluss soll vor Abgabe ein Finaler Push zur mit dem Namen Abgabe erfolgen.
     - Nach Abschluss ALLER Refaktorisierungen laden Sie oli90martin@web.de als Collaborator zu Ihrer Git-Repository ein.
      */
-    
 
-    public GameObject SantaGO;
-    public int SantaHealth = 100;
 
-    public List<string> giftInventory = new List<string>();
-    
     public GameObject sleigh;
 
+    public List<string> giftInventory = new List<string>();
+
+    private int santaHealth = 100;
     private bool isFlying;
     private float flyingSpeed = 10f;
 
 
     void Start()
     {
-        // GameObject aus Szene referenzieren
-        SantaGO = GameObject.Find("Santa");
-
         // Santa Health auf 80 Health stellen
-        SantaHealth = 80; Debug.Log("Weihnachtsabenteuer beginnt!");
+        santaHealth = 80; Debug.Log("Weihnachtsabenteuer beginnt!");
     }
 
     void Update()
     {
         // Wenn Santa lebt
-        if (SantaHealth > 0)
+        if (santaHealth > 0)
         {
             CheckMovement();
             CheckInventory();
@@ -63,7 +58,7 @@ public class XMasGame : MonoBehaviour
     
     void CheckMovement()
     {
-        // Bewege den Schlitten
+        // Bewege den Schlitten, wenn isFlying true ist
         if (isFlying)
         {
             var move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
@@ -77,7 +72,7 @@ public class XMasGame : MonoBehaviour
 
     void CheckInventory()
     {
-        // Wenn Geschenkinventar leer dann
+        // Wenn Geschenkinventar leer
         if (giftInventory.Count == 0)
         {
             Debug.Log("Keine Geschenke vorhanden.");
@@ -94,11 +89,11 @@ public class XMasGame : MonoBehaviour
     public void TakeDamage(int damage)
     {
         // int damage wird Santas Health abgezogen
-        SantaHealth -= damage;
+        santaHealth -= damage;
 
-        if (SantaHealth < 0)
+        if (santaHealth < 0)
         {
-            SantaHealth = 0;
+            santaHealth = 0;
         }
     }
     public void AddGiftToInventory(string gift)
@@ -106,6 +101,7 @@ public class XMasGame : MonoBehaviour
         // Wenn Geschenkeinventar kein Geschenk enthält
         if (!giftInventory.Contains(gift))
         {
+            // Füge Geschenk hinzu
             giftInventory.Add(gift);
         }
     }

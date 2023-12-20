@@ -1,3 +1,4 @@
+using UnityEditor.Search;
 using UnityEngine;
 
 public class SceneObjectManager : MonoBehaviour
@@ -8,6 +9,49 @@ public class SceneObjectManager : MonoBehaviour
     public string[] enemyTypes = { "fire", "water", "ice", "stone" };
 
     public Vector3 itemPositionRange = new Vector3(10f, 10f, 10f);
+
+    private void Start()
+    {
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        items = GameObject.FindGameObjectsWithTag("Item");
+
+        CheckEnemiesType();
+        CheckItemsPosition();
+    }
+
+    private void CheckEnemiesType()
+    {
+        foreach (GameObject enemy in enemies)
+        {
+            // Random Zahl in enemyTypes
+            int randomType = Random.Range(0, enemyTypes.Length);
+
+            // Typ zuweißen
+            string randomEnemyType = enemyTypes[randomType];
+
+            Debug.Log(randomEnemyType);
+        }
+    }
+
+    private void CheckItemsPosition()
+    {
+        foreach (GameObject item in items)
+        {
+            item.transform.position = GetRandomPosition();
+            Debug.Log(item.transform.position);
+        }
+    }
+
+    private Vector3 GetRandomPosition()
+    {
+        float randomX = Random.Range(-itemPositionRange.x, itemPositionRange.x);
+        float randomY = Random.Range(-itemPositionRange.y, itemPositionRange.y);
+        float randomZ = Random.Range(-itemPositionRange.z, itemPositionRange.z);
+
+        Vector3 randomPosition = new Vector3(randomX, randomY, randomZ);
+        return randomPosition;
+    }
+
 
     /*
     Aufgabenstellung: Refaktorisierung

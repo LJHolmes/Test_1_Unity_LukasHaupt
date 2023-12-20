@@ -14,27 +14,28 @@ public class WinterSportsGame : MonoBehaviour
     - Nach Abschluss ALLER Refaktorisierungen laden Sie oli90martin@web.de als Collaborator zu Ihrer Git-Repository ein.
     */
 
-    public int PlayerHealth = 100;
-    public float MoveSpeed = 10f;
 
     public GameObject Ski;
 
     public List<string> Achievements = new List<string>();
 
+    private int playerStamina = 100;
+    private float MoveSpeed = 10f;
     private bool isSkiing;
 
     void Start()
     {
-        PlayerHealth = 100;
+        playerStamina = 100;
 
         Debug.Log("WinterSports beginnt!");
     }
     void Update()
     {
-        // Wenn Spieler lebt
-        if (PlayerHealth > 0)
+        // Wenn Spieler noch Ausdauer hat
+        if (playerStamina > 0)
         {
-            CheckSkiing(); CheckAchievements();
+            CheckSkiing();
+            CheckAchievements();
         }
         else
         {
@@ -43,7 +44,7 @@ public class WinterSportsGame : MonoBehaviour
     }
     void CheckSkiing()
     {
-        // Ski bewegen
+        // Ski bewegen, wenn isSkiing true ist
         if (isSkiing)
         {
             var move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
@@ -71,22 +72,23 @@ public class WinterSportsGame : MonoBehaviour
         }
     }
 
-    public void LoseHealth(int amount)
+    public void LoseStamina(int amount)
     {
-        // Spieler int amount Health abziehen
-        PlayerHealth -= amount;
+        // Spieler wird int amount Ausdauer abgezogen
+        playerStamina -= amount;
         
-        if (PlayerHealth < 0)
+        if (playerStamina < 0)
         {
-            PlayerHealth = 0;
+            playerStamina = 0;
         }
     }
 
     public void AddAchievement(string achievement)
     {
-        // Wenn Achivments keine Achivements enthält
+        // Wenn Achievements kein achviement enthält
         if (!Achievements.Contains(achievement))
         {
+            // Füge achivement hinzu
             Achievements.Add(achievement);
         }
     }
